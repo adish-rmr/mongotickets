@@ -1,0 +1,17 @@
+{
+  "concert_name": "Summer Music Festival D1",
+  "artists": [
+    "Travis Scott",
+    "Eminem"
+  ],
+  "norm_names": ["travisscott", "eminem"],
+  "date": "2024-08-15T19:00:00",
+  "places_available": 100,
+  "stage": {
+    "name": "San Siro",
+    "location": {
+      "type": "Point",
+      "coordinates": [45.476062,9.128563]
+    }
+  }
+}
