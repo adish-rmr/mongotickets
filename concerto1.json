@@ -5,7 +5,7 @@
     "Eminem"
   ],
   "norm_names": ["travisscott", "eminem"],
-  "date": "2024-08-15T19:00:00",
+  "date": {"$date":"2024-08-15T19:00:00Z"},
   "places_available": 100,
   "stage": {
     "name": "San Siro",
