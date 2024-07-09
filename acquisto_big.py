@@ -10,16 +10,17 @@ db = client['MongoTicket']
 events = db['events']
 tickets = db['tickets']
 
-def generate_ticket(concert_name, num):
+def generate_ticket(concert_name, num, name_buyer):
     event = events.find_one({"concert_name": concert_name})
     if event:
         if event['places_available'] <= 0:
             return False
         else:
-            while num >0:
+            while num >0: #-1?
                 events.update_one({"concert_name": concert_name},
                                   {"$inc": {"places_available": -1}})
-                ticket = {"concert_name": concert_name,
+                ticket = {"concert_name": event["_id"],
+                          "buyer_name": name_buyer,
                           "seat_number": event['places_available']-num}
                 receipt = tickets.insert_one(ticket)
                 num -= 1
