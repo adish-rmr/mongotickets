@@ -44,3 +44,16 @@ def generate_ticket(concert_name, num, name_buyer):
                 st.write(f"Ticket ID: {receipt.inserted_id}")
             return True
 
+
+def search_geo(coordinates):
+    events_nearby = concerti.aggregate([
+        {'$match': {
+            'location.geo': {
+                '$geoWithin': {
+                    '$centerSphere': [coordinates[::-1], 7000 / 6378100]}
+            }}}])
+    return events_nearby
+
+
+for event in events_nearby:
+    print(f"Evento: {event.get('concert_name', 'N/A')}")
