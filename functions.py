@@ -57,3 +57,18 @@ def search_geo(coordinates):
 
 for event in events_nearby:
     print(f"Evento: {event.get('concert_name', 'N/A')}")
+
+
+
+def search_by_date():
+    query = {
+        "date": {
+            "$gte": datetime(2024, 8, 1),
+            "$lt": datetime(2024, 8, 31)
+        }
+    }
+    results = events.find(query)
+    results_list = list(results)
+    print(results_list)
+    print(len(results_list))
+    return results_list
